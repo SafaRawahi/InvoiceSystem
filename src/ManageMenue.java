@@ -44,7 +44,7 @@ public static void main(String a[]) {
 			
 		case 4:
 			
-			
+			itemTable.reportAllItems();
 			break;
 			
        case 5:

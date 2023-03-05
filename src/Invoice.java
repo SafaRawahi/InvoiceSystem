@@ -91,10 +91,12 @@ public class Invoice {
 			System.out.println("Enter  phoneNumber");
 			String phoneNumber = scanner.next();
 			
-//			Date invoiceDate = new Date(System.currentTimeMillis());
+			Date invoiceDate = new Date(System.currentTimeMillis());
 			System.out.println("Enter numberOfItems");
 			int numberOfItems = scanner.nextInt();
-			Date invoiceDate = new Date(System.currentTimeMillis());
+			
+//			Date invoiceDate = new Date(System.currentTimeMillis());
+			
 			System.out.println("Enter totalAmount");
 			int totalAmount = scanner.nextInt();
 			

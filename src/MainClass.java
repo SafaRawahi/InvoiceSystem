@@ -18,12 +18,15 @@ public class MainClass {
 		System.out.println("\t\t 4. Create Shop Table  ");
 		System.out.println("\t\t 5. Shop Setting Menue   ");
 		System.out.println("\t\t 6. Manage Shop Items Menue   ");
-		System.out.println("\t\t 7. Inser value To Invoice Table   ");
+		System.out.println("\t\t 7. Insert value To Invoice Table   ");
 		System.out.println("\t\t 0.EXIT ");
 }
 	
 	public static void main(String a[]) {
 		boolean isExit = true;
+		boolean manageShopMenue= true;
+		boolean shopSettingMenue= true;
+		
 		Invoice invoiceTable = new Invoice();
 		Item itemTable = new Item();
 		InvoiceHeade InvoiceHeadeTable= new InvoiceHeade();

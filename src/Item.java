@@ -1,4 +1,5 @@
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -219,5 +220,45 @@ public class Item {
 		}
 	}
 	
+//	method to print
+	public static void reportAllItems(){
+		final String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
+		   final String user = "root";
+		   final String pass = "root";
+		  
+		  
+		  
+		  String QUERY = "SELECT * FROM Items";
+		 
+		      Connection conn=null;
+		     
+		 try {
+			 conn = DriverManager.getConnection(url, user, pass);
+		 Driver driver = (Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+	     Statement stmt = conn.createStatement();
+	     DriverManager.registerDriver(driver);
+	     ResultSet rs=stmt.executeQuery(QUERY);
+			 while(rs.next()) {
+				int itemId=rs.getInt("itemId");
+				String ItemName=rs.getString("ItemName");
+				double  unitPrice=rs.getDouble("unitPrice");
+				int quantity=rs.getInt("quantity");
+				double qtyAmount_price=rs.getDouble("qtyAmount_price");
+				
+				
+				
+			     System.out.println("itemId :" + itemId);
+			     System.out.println("ItemName :" +ItemName);
+			     System.out.println("unitPrice" +unitPrice);
+			     System.out.println("quantity" +quantity);
+			     System.out.println("qtyAmount_price" +qtyAmount_price);
+			     System.out.println("===========================================================");
+			  
+			 }
+			 conn.close() ;
+		 }  catch (Exception ex) {
+	            System.err.println(ex);
+	}
+	}
 	
 }
