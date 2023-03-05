@@ -4,9 +4,9 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 import java.util.Scanner;
 
-public class InvoiceHeade {
+public class Shop {
 	//method to creat table	
-	public void invoiceHeaderTable() {
+	public void shopTable() {
 
 		// Java Program to Establish Connection in JDBC
 
@@ -25,9 +25,8 @@ public class InvoiceHeade {
 
 		// Entering the data
 		Scanner scanner = new Scanner(System.in);
-		String sql = ("CREATE TABLE InvoiceHeaderDetails (" + "Id int Primary Key AUTO_INCREMENT," + "Tel varchar(10),"
-				+ "Fax varchar(10)," + "Email varchar(100)," + "Website  varchar(150),"
-				+ "ShpId Integer REFERENCES Shop(ShopId))");
+		String sql = ("CREATE TABLE Shop (" + "ShopId int Primary Key AUTO_INCREMENT,"
+				+ "ShopName varchar(50))");
 
 		// Connection class object
 		Connection con = null;
