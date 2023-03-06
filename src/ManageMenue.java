@@ -15,43 +15,60 @@ static void manageShopMenue() {
 		System.out.println("\t\t 3. Change Item Price  ");
 		System.out.println("\t\t 4. Report All Items  ");
 		System.out.println("\t\t 5. Back To Main Menue  ");
-}
-public static void main(String a[]) {
+
 	boolean isExit = true;
 	 
 	
 	while (isExit) {
 
 		Scanner sc = new Scanner(System.in);
-		manageShopMenue();
+	
 		Item itemTable = new Item();
+		DataBaseSecurity myDataBaseSecurity = new DataBaseSecurity();
+
 		int option = sc.nextInt();
 
 		switch (option) {
 
 		case 1:
-			itemTable.insertItem();
+//			inserting value on table item
+//			itemTable.insertItem();
 			
+			itemTable.insertItem(myDataBaseSecurity.getUrl(),
+					myDataBaseSecurity.getUser(), myDataBaseSecurity.getPass());
 			break;
 			
 		case 2:
-			itemTable.deleteById();
+//			delet item
+//			itemTable.deleteById();
 			
+			itemTable.deleteById(myDataBaseSecurity.getUrl(),
+					myDataBaseSecurity.getUser(), myDataBaseSecurity.getPass());
 			break;
 			
 		case 3:
+//			updating 
+//			itemTable.updateById();
 			
-			itemTable.updateById();
+			itemTable.updateById(myDataBaseSecurity.getUrl(),
+					myDataBaseSecurity.getUser(), myDataBaseSecurity.getPass());
+			
 			break;
 			
 		case 4:
+//			report all items
+//			itemTable.reportAllItems();
 			
-			itemTable.reportAllItems();
+			itemTable.reportAllItems(myDataBaseSecurity.getUrl(),
+					myDataBaseSecurity.getUser(), myDataBaseSecurity.getPass());
 			break;
+			
 			
        case 5:
-    	   
+    	   isExit = false;
 			break;
 
-		}}}
+		}
+		}
+	}
 }

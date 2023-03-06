@@ -1,9 +1,11 @@
 import java.util.Scanner;
 
 public class DataBaseSecurity {
-	
+	String pass ;
 	String url;
 	 String user;
+	 
+	 
 	 public String getUrl() {
 		return url;
 	}
@@ -22,6 +24,6 @@ public class DataBaseSecurity {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	String pass ;
+	
 
 }

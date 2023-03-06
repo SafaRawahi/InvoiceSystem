@@ -31,10 +31,12 @@ public class MainClass {
 	
 	public static void main(String a[]) throws IOException {
 		boolean isExit = true;
-//		boolean manageShopMenue= true;
-//		boolean shopSettingMenue= true;
+		boolean isExitManageShopMenue= true;
+		boolean isExitManageMenue= true;
 		
 		DataBaseSecurity myDataBaseSecurity = new DataBaseSecurity();
+		
+		
 		Invoice invoiceTable = new Invoice();
 		Item itemTable = new Item();
 		InvoiceHeade InvoiceHeadeTable= new InvoiceHeade();
@@ -70,46 +72,66 @@ public class MainClass {
 			case 1:
 //				creat invoice table
 //				invoiceTable.invoiceTable();
-				
+				invoiceTable.invoiceTable(myDataBaseSecurity.getUrl(),
+						myDataBaseSecurity.getUser(), myDataBaseSecurity.getPass());
 			
-				
 				break;
 				
 			case 2:
 //				creat items table
-				itemTable.itemTable();
+//				itemTable.itemTable();
+				
+				itemTable.itemTable(myDataBaseSecurity.getUrl(),
+						myDataBaseSecurity.getUser(), myDataBaseSecurity.getPass());
+				
 				break;
 				
 			case 3:
 //				creat invoice header table
-				InvoiceHeadeTable.invoiceHeaderTable();
+//				InvoiceHeadeTable.invoiceHeaderTable();
+				
+				InvoiceHeadeTable.invoiceHeaderTable(myDataBaseSecurity.getUrl(),
+						myDataBaseSecurity.getUser(), myDataBaseSecurity.getPass());
 				
 				break;
 				
 			case 4:
 //				creat shop table
-				shopTable.shopTable();
+//				shopTable.shopTable();
+				
+				shopTable.shopTable(myDataBaseSecurity.getUrl(),
+						myDataBaseSecurity.getUser(), myDataBaseSecurity.getPass());
+				
 				break;
 				
 			case 5:
-			        
+//			        shop menue
 				myshopMenue.shopSettingMenue();
+
 				break;
 				
 			case 6:
-
+//    		manage menue
 				myManageMenue.manageShopMenue();
 				
 				break;
 				
 			case 7:
 //				Inserting A New Invoice 
-				myNewInvoice.insertnewValue();
+//				myNewInvoice.insertnewValue();
+				
+				myNewInvoice.insertnewValue(myDataBaseSecurity.getUrl(),
+						myDataBaseSecurity.getUser(), myDataBaseSecurity.getPass());
 				
 				break;
 				
 			case 8:
-				myNewInvoice.insertnewValue();
+//				insert new Invoice
+//				myNewInvoice.insertnewValue();
+				
+				myNewInvoice.insertnewValue(myDataBaseSecurity.getUrl(),
+						myDataBaseSecurity.getUser(), myDataBaseSecurity.getPass());
+				
 				
 				break;
 				

@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Item {
 	//method to creat table	
-	public void itemTable() {
+	public void itemTable(String url , String user ,String pass) {
 
 		// Java Program to Establish Connection in JDBC
 
@@ -18,12 +18,12 @@ public class Item {
 
 		// Creating the connection using Oracle DB
 		// Note: url syntax is standard, so do grasp
-		String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
-
-		// Username and password to access DB
-		// Custom initialization
-		String user = "root";
-		String pass = "root";
+//		String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
+//
+//		// Username and password to access DB
+//		// Custom initialization
+//		String user = "root";
+//		String pass = "root";
 
 		// Entering the data
 		Scanner scanner = new Scanner(System.in);
@@ -69,12 +69,12 @@ public class Item {
 	}
 	
 	
-	
-	public static void insertItem() {
-		final String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
+//	inserting data to item table
+	public static void insertItem(String url , String user ,String pass) {
+//		final String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
 	  	 Scanner scanner = new Scanner(System.in);
-		final String user = "root";
-		final String pass = "root";
+//		final String user = "root";
+//		final String pass = "root";
 		Connection conn = null;
 		
 		System.out.println("How Many Items  You Want To Insert :");
@@ -130,13 +130,13 @@ public class Item {
 	}
 	
 //	 method to delete items
-	public void deleteById() {
-		String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
+	public void deleteById(String url , String user ,String pass) {
+//		String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
 
 		// Username and password to access DB
 		// Custom initialization
-		String user = "root";
-		String pass = "root";
+//		String user = "root";
+//		String pass = "root";
 		Connection con = null;
 
 		try {
@@ -175,13 +175,13 @@ public class Item {
 	}
 	
 //	method to update values by Id
-	public void updateById() {
-		String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
+	public void updateById(String url , String user ,String pass) {
+//		String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
 
 		// Username and password to access DB
 		// Custom initialization
-		String user = "root";
-		String pass = "root";
+//		String user = "root";
+//		String pass = "root";
 		Connection con = null;
 
 		try {
@@ -221,11 +221,11 @@ public class Item {
 	}
 	
 //	method to print
-	public static void reportAllItems(){
-		final String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
-		   final String user = "root";
-		   final String pass = "root";
-		  
+	public static void reportAllItems(String url , String user ,String pass){
+//		final String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
+//		   final String user = "root";
+//		   final String pass = "root";
+//		  
 		  
 		  
 		  String QUERY = "SELECT * FROM Items";

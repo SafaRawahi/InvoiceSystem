@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class InvoiceHeade {
 	//method to creat table	
-	public void invoiceHeaderTable() {
+	public void invoiceHeaderTable(String url , String user ,String pass) {
 
 		// Java Program to Establish Connection in JDBC
 
@@ -17,12 +17,12 @@ public class InvoiceHeade {
 
 		// Creating the connection using Oracle DB
 		// Note: url syntax is standard, so do grasp
-		String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
-
-		// Username and password to access DB
-		// Custom initialization
-		String user = "root";
-		String pass = "root";
+//		String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
+//
+//		// Username and password to access DB
+//		// Custom initialization
+//		String user = "root";
+//		String pass = "root";
 
 		// Entering the data
 		Scanner scanner = new Scanner(System.in);
@@ -65,11 +65,11 @@ public class InvoiceHeade {
 	}
 	
 	
-	public static void insertInvoiceHeader(){
-		final String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
+	public static void insertInvoiceHeader(String url , String user ,String pass){
+//		final String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
 		Scanner scanner = new Scanner(System.in);
-		final String user = "root";
-		final String pass = "root";
+//		final String user = "root";
+//		final String pass = "root";
 		Connection conn = null;
 		System.out.println("How Many Invoice Header You Want To Insert :");
 		int s = scanner.nextInt();

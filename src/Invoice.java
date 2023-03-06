@@ -14,7 +14,7 @@ public class Invoice {
 	
 //method to creat table	
 
-	public void invoiceTable(String url , String user ,String pass) {
+	public  static void invoiceTable(String url , String user ,String pass) {
 
 		// Java Program to Establish Connection in JDBC
 
@@ -75,11 +75,13 @@ public class Invoice {
 	
 	//method to insert value in table
 	
-	public static void insertValue(){
-		final String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
+	public static void insertValue(String url , String user ,String pass){
+//		final String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
 		Scanner scanner = new Scanner(System.in);
-		final String user = "root";
-		final String pass = "root";
+//		final String user = "root";
+//		final String pass = "root";
+		
+		
 		Connection conn = null;
 		System.out.println("Enter Number Of Invoice You Want To Insert:");
 		int s = scanner.nextInt();
