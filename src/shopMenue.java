@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class shopMenue {
@@ -5,17 +6,18 @@ public class shopMenue {
 	
 	
 	static void shopSettingMenue() {
-		
-		System.out.println("\t \t ****************************** \t \t");
-		System.out.println("\t \t ***Please Choose One Option*** \t \t");
-		System.out.println("\t \t ****************************** \t \t");
-		System.out.println("\t\t 1. Load Data  ");
-		System.out.println("\t\t 2. Set Shop Name  ");
-		System.out.println("\t\t 3. Set Invoice Header  ");
-		System.out.println("\t\t 4. Back To Main Menue  ");
+
 	
 		boolean isExit = true;
 		while (isExit) {
+			
+			System.out.println("\t \t ****************************** \t \t");
+			System.out.println("\t \t ***Please Choose One Option*** \t \t");
+			System.out.println("\t \t ****************************** \t \t");
+			System.out.println("\t\t 1. Load Data  ");
+			System.out.println("\t\t 2. Set Shop Name  ");
+			System.out.println("\t\t 3. Set Invoice Header  ");
+			System.out.println("\t\t 4. Back To Main Menue  ");
 
 			Scanner sc = new Scanner(System.in);
 //			shopSettingMenue();
@@ -24,7 +26,7 @@ public class shopMenue {
 			Invoice invoiceTable = new Invoice();
 			DataBaseSecurity myDataBaseSecurity = new DataBaseSecurity();
 
-			
+			try {
 			int option = sc.nextInt();
 
 			switch (option) {
@@ -59,7 +61,11 @@ public class shopMenue {
 				break;
 	
 }
+}catch (InputMismatchException e) {
+	System.out.println(" Invalid ! Please enter a valid integer");
+	sc.nextLine();
+
 }
-		
+		}
 		}
 	}

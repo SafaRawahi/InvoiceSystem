@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ManageMenue {
@@ -7,6 +8,12 @@ public class ManageMenue {
 	
 static void manageShopMenue() {
 		
+		
+
+	boolean isExit = true;
+	 
+
+	while (isExit) {
 		System.out.println("\t \t ****************************** \t \t");
 		System.out.println("\t \t ***Please Choose One Option*** \t \t");
 		System.out.println("\t \t ****************************** \t \t");
@@ -16,16 +23,11 @@ static void manageShopMenue() {
 		System.out.println("\t\t 4. Report All Items  ");
 		System.out.println("\t\t 5. Back To Main Menue  ");
 
-	boolean isExit = true;
-	 
-	
-	while (isExit) {
-
 		Scanner sc = new Scanner(System.in);
 	
 		Item itemTable = new Item();
 		DataBaseSecurity myDataBaseSecurity = new DataBaseSecurity();
-
+		try {
 		int option = sc.nextInt();
 
 		switch (option) {
@@ -70,5 +72,9 @@ static void manageShopMenue() {
 
 		}
 		}
-	}
-}
+	catch (InputMismatchException e) {
+		System.out.println(" Invalid ! Please enter a valid integer");
+		sc.nextLine();
+
+	}}
+}}

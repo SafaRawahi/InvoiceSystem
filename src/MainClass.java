@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
@@ -31,8 +32,7 @@ public class MainClass {
 	
 	public static void main(String a[]) throws IOException {
 		boolean isExit = true;
-		boolean isExitManageShopMenue= true;
-		boolean isExitManageMenue= true;
+		
 		
 		DataBaseSecurity myDataBaseSecurity = new DataBaseSecurity();
 		
@@ -63,8 +63,8 @@ public class MainClass {
 			Scanner sc = new Scanner(System.in);
 			mainMenue();
 			
-			int num;
 
+try {
 			int option = sc.nextInt();
 
 			switch (option) {
@@ -151,12 +151,16 @@ public class MainClass {
 	case 0:
 		System.out.println(" See You Soon ");
 		System.exit(0);
-
+		isExit = false;
 		break;
 
 }
 
+}catch (InputMismatchException e) {
+	System.out.println(" Invalid ! Please enter a valid integer");
+	sc.nextLine();
+
 }
-isExit = false;
-		}}
+
+		}}}
 		
