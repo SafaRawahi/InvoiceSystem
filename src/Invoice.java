@@ -144,4 +144,49 @@ public class Invoice {
 	
 	
 	
-	}}
+	}
+	
+//	Report Invoices
+	
+	public static void reportAllInvoice(){
+		final String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
+		   final String user = "root";
+		   final String pass = "root";
+		  
+		  
+		  
+		  String QUERY = "SELECT * FROM Invoice";
+		 
+		      Connection conn=null;
+		     
+		 try {
+			 conn = DriverManager.getConnection(url, user, pass);
+		 Driver driver = (Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+	     Statement stmt = conn.createStatement();
+	     DriverManager.registerDriver(driver);
+	     ResultSet rs=stmt.executeQuery(QUERY);
+			 while(rs.next()) {
+				
+				String customerFullName=rs.getString("customerFullName");
+				int numberOfItems=rs.getInt("numberOfItems");
+				double  totalAmount=rs.getDouble("totalAmount");
+				int balance=rs.getInt("balance");
+				
+				
+				
+				
+			     System.out.println("itemId :" + numberOfItems);
+			     System.out.println("ItemName :" +customerFullName);
+			     System.out.println("unitPrice" +totalAmount);
+			     System.out.println("quantity" +balance);
+			     
+			     System.out.println("===========================================================");
+			  
+			 }
+			 conn.close() ;
+		 }  catch (Exception ex) {
+	            System.err.println(ex);
+	}
+	}
+
+}

@@ -35,7 +35,9 @@ public class shopMenue {
 				
 				invoiceTable.insertValue();
 				break;
+				
 			case 2:
+//				Set Shop Name
 				shopTable.insertShopName();
 				
 				break;

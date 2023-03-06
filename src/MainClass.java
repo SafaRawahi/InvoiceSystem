@@ -20,7 +20,7 @@ public class MainClass {
 		System.out.println("\t\t 6. Manage Shop Items Menue   ");
 		System.out.println("\t\t 7. Insert New Invoice    ");
 		System.out.println("\t\t 8. Report Of No.Items No.Invoice No.Sales    ");
-		System.out.println("\t\t 9. Report Of No.Items No.Invoice No.Sales    ");
+		System.out.println("\t\t 9. Report All Invoices   ");
 		
 		
 		System.out.println("\t\t 0.EXIT ");
@@ -73,7 +73,7 @@ public class MainClass {
 				break;
 				
 			case 5:
-			
+			        
 				myshopMenue.shopSettingMenue();
 				break;
 				
@@ -92,7 +92,11 @@ public class MainClass {
 				myNewInvoice.insertnewValue();
 				
 				break;
-		
+				
+			case 9:
+				invoiceTable.reportAllInvoice();
+				
+				break;
 				
 				
 				

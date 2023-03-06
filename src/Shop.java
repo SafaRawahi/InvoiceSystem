@@ -71,7 +71,7 @@ public class Shop {
 		final String pass = "root";
 		Connection conn = null;
 		
-		System.out.println("How Many Items  You Want To Insert :");
+		System.out.println("How Many Shop You Want To Insert :");
 		 int s = scanner.nextInt();
 			
 		 for(int i=0;i<s;i++) {
@@ -95,7 +95,7 @@ public class Shop {
 				ShId = rs.getInt("ShopId");
 			}
 			System.out.println(ShId);
-			String sql = "insert into Items (ShopName)"
+			String sql = "insert into Shop (ShopName)"
 					+ "values('"+ShopName+ "')";
 			
 			int m = stmt.executeUpdate(sql);
