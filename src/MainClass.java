@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 
@@ -21,16 +24,17 @@ public class MainClass {
 		System.out.println("\t\t 7. Insert New Invoice    ");
 		System.out.println("\t\t 8. Report Of No.Items No.Invoice No.Sales    ");
 		System.out.println("\t\t 9. Report All Invoices   ");
-		
+		System.out.println("\t\t 10. Search One Invoice  ");
 		
 		System.out.println("\t\t 0.EXIT ");
 }
 	
-	public static void main(String a[]) {
+	public static void main(String a[]) throws IOException {
 		boolean isExit = true;
 //		boolean manageShopMenue= true;
 //		boolean shopSettingMenue= true;
 		
+		DataBaseSecurity myDataBaseSecurity = new DataBaseSecurity();
 		Invoice invoiceTable = new Invoice();
 		Item itemTable = new Item();
 		InvoiceHeade InvoiceHeadeTable= new InvoiceHeade();
@@ -38,6 +42,19 @@ public class MainClass {
 		shopMenue myshopMenue = new shopMenue();
 		ManageMenue myManageMenue = new ManageMenue();
 		NewInvoice myNewInvoice = new NewInvoice();
+		
+
+//		System.out.println(" Please Enter DataBase url   ");
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		System.out.print(" Please Enter the database connection URL :\n");
+		myDataBaseSecurity.setUrl(br.readLine());
+		System.out.print(" Please user name :");
+		myDataBaseSecurity.setUser(br.readLine());
+		System.out.print(" Please user password :");
+		myDataBaseSecurity.setPass(br.readLine());
+		
+
 		
 		while (isExit) {
 
@@ -52,7 +69,9 @@ public class MainClass {
 
 			case 1:
 //				creat invoice table
-				invoiceTable.invoiceTable();
+//				invoiceTable.invoiceTable();
+				
+			
 				
 				break;
 				
@@ -84,6 +103,7 @@ public class MainClass {
 				break;
 				
 			case 7:
+//				Inserting A New Invoice 
 				myNewInvoice.insertnewValue();
 				
 				break;
@@ -98,6 +118,11 @@ public class MainClass {
 				
 				break;
 				
+			case 10:
+//				Search One Invoice by ID
+				invoiceTable.getById();
+				
+				break;
 				
 				
 				

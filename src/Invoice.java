@@ -14,7 +14,7 @@ public class Invoice {
 	
 //method to creat table	
 
-	public void invoiceTable() {
+	public void invoiceTable(String url , String user ,String pass) {
 
 		// Java Program to Establish Connection in JDBC
 
@@ -24,12 +24,12 @@ public class Invoice {
 
 		// Creating the connection using Oracle DB
 		// Note: url syntax is standard, so do grasp
-		String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
-
-		// Username and password to access DB
-		// Custom initialization
-		String user = "root";
-		String pass = "root";
+//		String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
+//
+//		// Username and password to access DB
+//		// Custom initialization
+//		String user = "root";
+//		String pass = "root";
 
 		// Entering the data
 		Scanner scanner = new Scanner(System.in);
@@ -187,6 +187,53 @@ public class Invoice {
 		 }  catch (Exception ex) {
 	            System.err.println(ex);
 	}
+	}
+//	to search 
+	public void getById() {
+		String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
+
+		// Username and password to access DB
+		// Custom initialization
+		String user = "root";
+		String pass = "root";
+		Connection con = null;
+		try {
+
+			Driver driver = (Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			// Registering drivers
+			DriverManager.registerDriver(driver);
+
+			// Reference to connection interface
+			con = DriverManager.getConnection(url, user, pass);
+
+			// Creating a statement
+			Statement st = con.createStatement();
+			Scanner scanner = new Scanner(System.in);
+			System.out.println("Numbers Of Id You Want To Show ");
+			int inputid = scanner.nextInt();
+			int count = 1;
+			String sql = "select * from Invoice where InvoiceId='" + inputid + "'";
+			ResultSet rs = st.executeQuery(sql);
+			while (rs.next() && count <= inputid) {
+				int InvoiceId = rs.getInt("InvoiceId");
+				
+				String customerFullName = rs.getString("customerFullName");
+				int phoneNumber=rs.getInt("phoneNumber");
+				Date invoiceDate=rs.getDate("invoiceDate");
+				int numberOfItems=rs.getInt("numberOfItems");
+				double  totalAmount=rs.getDouble("totalAmount");
+				int paidAmount=rs.getInt("paidAmount");
+				int balance=rs.getInt("balance");
+				
+				
+				System.out.println(InvoiceId + " " +
+				customerFullName + " " + phoneNumber + " " + invoiceDate + " " + numberOfItems
+						+ " " + totalAmount+ " "+ paidAmount + " "+ balance);
+				count++;
+			}
+		} catch (Exception ex) {
+			System.err.println(ex);
+		}
 	}
 
 }
