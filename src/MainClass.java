@@ -18,14 +18,18 @@ public class MainClass {
 		System.out.println("\t\t 4. Create Shop Table  ");
 		System.out.println("\t\t 5. Shop Setting Menue   ");
 		System.out.println("\t\t 6. Manage Shop Items Menue   ");
-		System.out.println("\t\t 7. Insert value To Invoice Table   ");
+		System.out.println("\t\t 7. Insert New Invoice    ");
+		System.out.println("\t\t 8. Report Of No.Items No.Invoice No.Sales    ");
+		System.out.println("\t\t 9. Report Of No.Items No.Invoice No.Sales    ");
+		
+		
 		System.out.println("\t\t 0.EXIT ");
 }
 	
 	public static void main(String a[]) {
 		boolean isExit = true;
-		boolean manageShopMenue= true;
-		boolean shopSettingMenue= true;
+//		boolean manageShopMenue= true;
+//		boolean shopSettingMenue= true;
 		
 		Invoice invoiceTable = new Invoice();
 		Item itemTable = new Item();
@@ -33,6 +37,7 @@ public class MainClass {
 		Shop shopTable = new Shop();
 		shopMenue myshopMenue = new shopMenue();
 		ManageMenue myManageMenue = new ManageMenue();
+		NewInvoice myNewInvoice = new NewInvoice();
 		
 		while (isExit) {
 
@@ -69,18 +74,29 @@ public class MainClass {
 				
 			case 5:
 			
-			
+				myshopMenue.shopSettingMenue();
 				break;
 				
 			case 6:
 
 				myManageMenue.manageShopMenue();
+				
 				break;
 				
 			case 7:
-				invoiceTable.insertValue();
+				myNewInvoice.insertnewValue();
 				
 				break;
+				
+			case 8:
+				myNewInvoice.insertnewValue();
+				
+				break;
+		
+				
+				
+				
+				
 	case 0:
 		System.out.println(" See You Soon ");
 		System.exit(0);

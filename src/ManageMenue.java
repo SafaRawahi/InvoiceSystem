@@ -18,6 +18,8 @@ static void manageShopMenue() {
 }
 public static void main(String a[]) {
 	boolean isExit = true;
+	 
+	
 	while (isExit) {
 
 		Scanner sc = new Scanner(System.in);
@@ -48,8 +50,7 @@ public static void main(String a[]) {
 			break;
 			
        case 5:
-			
-			
+    	   
 			break;
 
 		}}}

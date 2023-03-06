@@ -22,17 +22,31 @@ public class shopMenue {
 
 			Scanner sc = new Scanner(System.in);
 			shopSettingMenue();
+			Shop shopTable = new Shop();
+			InvoiceHeade InvoiceHeadeTable= new InvoiceHeade();
+			Invoice invoiceTable = new Invoice();
 			
-
+			
 			int option = sc.nextInt();
 
 			switch (option) {
 
 			case 1:
 				
+				invoiceTable.insertValue();
+				break;
+			case 2:
+				shopTable.insertShopName();
 				
 				break;
+			case 3:
 	
+				InvoiceHeadeTable.insertInvoiceHeader();
+				break;
+			case 4:
+	
+	
+				break;
 	
 }
 }}}
