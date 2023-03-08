@@ -6,6 +6,7 @@ import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Random;
 import java.util.Scanner;
@@ -150,10 +151,10 @@ public class Invoice {
 	
 //	Report Invoices
 	
-	public static void reportAllInvoice(){
-		final String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
-		   final String user = "root";
-		   final String pass = "root";
+	public static void reportAllInvoice(String url , String user ,String pass){
+//		final String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
+//		   final String user = "root";
+//		   final String pass = "root";
 		  
 		  
 		  
@@ -191,13 +192,13 @@ public class Invoice {
 	}
 	}
 //	to search 
-	public void getById() {
-		String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
+	public void getById(String url , String user ,String pass) {
+//		String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
 
 		// Username and password to access DB
 		// Custom initialization
-		String user = "root";
-		String pass = "root";
+//		String user = "root";
+//		String pass = "root";
 		Connection con = null;
 		try {
 
@@ -236,6 +237,53 @@ public class Invoice {
 		} catch (Exception ex) {
 			System.err.println(ex);
 		}
+	}
+//Report Statistics
+	
+	public static void reportStatistics(String url , String user ,String pass){
+//		final String url = "jdbc:mysql://localhost:3306/InvoiceSystem";
+//		   final String user = "root";
+//		   final String pass = "root";
+		  
+		  
+		  
+		String QUERY = "SELECT COUNT(Items.itemId) as \"No Of Items\", " +
+                "COUNT(DISTINCT Invoice.InvoiceId) as \"No of Invoices\", " +
+                "SUM(InvoiceItems.quantity * Items.unitPrice) as \"Total Sales\" " +
+                "FROM Items " +
+                "JOIN InvoiceItems ON Items.itemId = InvoiceItems.itemId " +
+                "JOIN Invoice ON Invoice.InvoiceId= InvoiceItems.InvoiceId";
+		 
+		      Connection conn=null;
+		     
+		 try {
+			 conn = DriverManager.getConnection(url, user, pass);
+		 Driver driver = (Driver) Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+	     Statement stmt = conn.createStatement();
+	     DriverManager.registerDriver(driver);
+	     ResultSet rs=stmt.executeQuery(QUERY);
+			 while(rs.next()) {
+				
+				 int numberOfItems = rs.getInt("No Of Items");
+			        int numberOfInvoices = rs.getInt("No of Invoices");
+			        double totalAmount = rs.getDouble("Total Sales");
+			        
+			        System.out.println("No Of Items: " + numberOfItems);
+			        System.out.println("No of Invoices: " + numberOfInvoices);
+			        System.out.println("Total Sales: " + totalAmount);
+			     
+			     System.out.println("===========================================================");
+			  
+			 }
+			
+			   
+			 conn.close() ;
+		 }  catch (Exception ex) {
+	            System.err.println(ex);
+	}
+	
+	
+	
 	}
 
 }

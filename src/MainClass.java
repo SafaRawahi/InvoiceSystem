@@ -126,33 +126,55 @@ try {
 				break;
 				
 			case 8:
-//				insert new Invoice
-//				myNewInvoice.insertnewValue();
-				
-				myNewInvoice.insertnewValue(myDataBaseSecurity.getUrl(),
+//				
+				invoiceTable.reportStatistics(myDataBaseSecurity.getUrl(),
 						myDataBaseSecurity.getUser(), myDataBaseSecurity.getPass());
-				
-				
 				break;
 				
 			case 9:
-				invoiceTable.reportAllInvoice();
-				
+//			Report all invoices	
+//				invoiceTable.reportAllInvoice();
+				invoiceTable.reportAllInvoice(myDataBaseSecurity.getUrl(),
+						myDataBaseSecurity.getUser(), myDataBaseSecurity.getPass());
 				break;
 				
 			case 10:
 //				Search One Invoice by ID
-				invoiceTable.getById();
+//				invoiceTable.getById();
+				invoiceTable.getById(myDataBaseSecurity.getUrl(),
+						myDataBaseSecurity.getUser(), myDataBaseSecurity.getPass());
+				break;
+				
+				
+			case 11:
+
 				
 				break;
 				
 				
 				
 	case 0:
-		System.out.println(" See You Soon ");
-		System.exit(0);
-		isExit = false;
-		break;
+		
+		// ask user if they want to exit program
+        System.out.print("Are you sure you want to exit? (Y/N) ");
+        String answer = sc.next();
+        if (answer.equalsIgnoreCase("Y")) {
+        	isExit = false; 
+            System.out.println(" See You Soon ");
+
+        }
+        	else 
+        		isExit = true;
+        		     
+        		
+        break;
+    default:
+        System.out.println("Invalid choice. Please try again.");
+//        break;
+//		System.out.println(" See You Soon ");
+//		System.exit(0);
+//		isExit = false;
+		
 
 }
 
