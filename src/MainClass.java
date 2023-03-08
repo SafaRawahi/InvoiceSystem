@@ -36,7 +36,7 @@ public class MainClass {
 		
 		DataBaseSecurity myDataBaseSecurity = new DataBaseSecurity();
 		
-		
+//		
 		Invoice invoiceTable = new Invoice();
 		Item itemTable = new Item();
 		InvoiceHeade InvoiceHeadeTable= new InvoiceHeade();
